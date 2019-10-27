@@ -39,17 +39,7 @@ namespace TaiChi.Core.Mvc.Controllers
                 LoginTime = DateTime.Now
             };
 
-            //base.TempData["User"] = new CurrentUser()
-            //{
-            //    Id = 7,
-            //    Name = "CSS",
-            //    Account = "季雨林",
-            //    Email = "KOKE",
-            //    Password = "落单的候鸟",
-            //    LoginTime = DateTime.Now
-            //};//后台可以跨action  基于session
-
-            base.TempData.Put("User", new CurrentUser()
+            base.TempData["User"] = new CurrentUser()
             {
                 Id = 7,
                 Name = "CSS",
@@ -57,7 +47,17 @@ namespace TaiChi.Core.Mvc.Controllers
                 Email = "KOKE",
                 Password = "落单的候鸟",
                 LoginTime = DateTime.Now
-            });
+            };//后台可以跨action  基于session
+
+            //base.TempData.Put("User", new CurrentUser()
+            //{
+            //    Id = 7,
+            //    Name = "CSS",
+            //    Account = "季雨林",
+            //    Email = "KOKE",
+            //    Password = "落单的候鸟",
+            //    LoginTime = DateTime.Now
+            //});
 
             if (id == null)
             {
@@ -80,7 +80,7 @@ namespace TaiChi.Core.Mvc.Controllers
 
         public IActionResult TempDataPage()
         {
-            base.ViewBag.User = base.TempData.Get<CurrentUser>("User");//可以拿到数据
+            base.ViewBag.User = base.TempData["User"];//可以拿到数据
             return View();
         }
     }

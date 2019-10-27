@@ -35,6 +35,8 @@ namespace TaiChi.Core.Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddSession();
         }
 
         /// <summary>
@@ -67,6 +69,8 @@ namespace TaiChi.Core.Mvc
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 
