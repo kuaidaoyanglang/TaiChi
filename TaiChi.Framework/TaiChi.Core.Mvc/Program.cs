@@ -28,6 +28,14 @@ namespace TaiChi.Core.Mvc
         /// asp.net:ConfigurationManager
         /// asp.net core:依赖于IConfiguration
         /// 
+        /// 
+        /// Log4Net 集成到Core
+        ///     引入log4net
+        ///     Microsoft.Extensions.Logging.Log4Net.AspNetCore
+        ///     添加Log4Net配置文件
+        ///     注入ILoggerFactory
+        ///     创建Ilogger对象
+        ///     写日志
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
@@ -39,6 +47,11 @@ namespace TaiChi.Core.Mvc
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging((context,ILoggingBuilder)=> {
+                    ILoggingBuilder.AddFilter("System",LogLevel.Warning);// 忽略系统的其他日志
+                    ILoggingBuilder.AddFilter("Microsoft",LogLevel.Warning);//忽略系统的其他日志
+                    ILoggingBuilder.AddLog4Net();
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

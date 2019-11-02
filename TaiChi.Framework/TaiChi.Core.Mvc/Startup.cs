@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace TaiChi.Core.Mvc
 {
@@ -45,7 +46,7 @@ namespace TaiChi.Core.Mvc
         /// <param name="app"></param>
         /// <param name="env"></param>
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILoggerFactory loggerFactory)
         {
 
             //framework 全部封装好的25个事件，可以通过注册事件，添加业务逻辑
@@ -55,7 +56,24 @@ namespace TaiChi.Core.Mvc
             //string helloWorld = "Hello World!";
             //byte[] vs = System.Text.Encoding.Default.GetBytes(helloWorld);
             //app.Run(a => a.Response.Body.WriteAsync(vs,0,vs.Length));//中断
-            
+
+            var _logger = loggerFactory.CreateLogger<Startup>();
+
+            _logger.LogError("this is a Startup class Error");
+
+            #region Asp.Net Core读取配置文件（JSON文件） 
+            //xml path
+            Console.WriteLine($"option1 = {this.Configuration["Option1"]}");
+            Console.WriteLine($"option2 = {this.Configuration["option2"]}");
+            Console.WriteLine(
+                $"suboption1 = {this.Configuration["subsection:suboption1"]}");
+            Console.WriteLine("Wizards:");
+            Console.Write($"{this.Configuration["wizards:0:Name"]}, ");
+            Console.WriteLine($"age {this.Configuration["wizards:0:Age"]}");
+            Console.Write($"{this.Configuration["wizards:1:Name"]}, ");
+            Console.WriteLine($"age {this.Configuration["wizards:1:Age"]}");
+            #endregion
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
