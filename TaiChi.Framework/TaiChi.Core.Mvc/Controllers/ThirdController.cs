@@ -19,7 +19,7 @@ namespace TaiChi.Core.Mvc.Controllers
     /// 
     /// 
     /// </summary>
-    [TypeFilter(typeof(CustomControllerActionFilterAttribute))]
+    [TypeFilter(typeof(CustomControllerActionFilterAttribute),Order =-1)]
     public class ThirdController : Controller
     {
         private ILoggerFactory _loggerFactory = null;
@@ -53,7 +53,7 @@ namespace TaiChi.Core.Mvc.Controllers
         }
 
         // GET: /<controller>/
-        [TypeFilter(typeof(CustomActionFilterAttribute))]
+        [TypeFilter(typeof(CustomActionFilterAttribute),Order =-2)]
         public IActionResult Index(int? id)
         {
             //_testServiceA.Show();
