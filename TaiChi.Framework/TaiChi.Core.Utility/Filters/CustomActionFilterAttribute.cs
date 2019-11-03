@@ -19,13 +19,13 @@ namespace TaiChi.Core.Utility.Filters
         public void OnActionExecuted(ActionExecutedContext context)
         {
             //context.HttpContext.Response.WriteAsync("ActionFilter Executed!");
-            Console.WriteLine("ActionFilter Executed!");
+            Console.WriteLine("CustomActionFilter Executed!");
             //this._logger.LogDebug("ActionFilter Executed!");
         } 
         public void OnActionExecuting(ActionExecutingContext context)
         {
             //context.HttpContext.Response.WriteAsync("ActionFilter Executing!");
-            Console.WriteLine("ActionFilter Executing!");
+            Console.WriteLine("CustomActionFilter Executing!");
             //this._logger.LogDebug("ActionFilter Executing!");
         }
     }
@@ -43,13 +43,13 @@ namespace TaiChi.Core.Utility.Filters
         public void OnActionExecuted(ActionExecutedContext context)
         {
             //context.HttpContext.Response.WriteAsync("ActionFilter Executed!");
-            Console.WriteLine("ActionFilter Executed!");
+            Console.WriteLine("CustomControllerActionFilter Executed!");
             //this._logger.LogDebug("ActionFilter Executed!");
         }
         public void OnActionExecuting(ActionExecutingContext context)
         {
             //context.HttpContext.Response.WriteAsync("ActionFilter Executing!");
-            Console.WriteLine("ActionFilter Executing!");
+            Console.WriteLine("CustomControllerActionFilter Executing!");
             //this._logger.LogDebug("ActionFilter Executing!");
         }
     }
@@ -67,13 +67,13 @@ namespace TaiChi.Core.Utility.Filters
         public void OnActionExecuted(ActionExecutedContext context)
         {
             //context.HttpContext.Response.WriteAsync("ActionFilter Executed!");
-            Console.WriteLine("ActionFilter Executed!");
+            Console.WriteLine("CustomGlobalActionFilter Executed!");
             //this._logger.LogDebug("ActionFilter Executed!");
         }
         public void OnActionExecuting(ActionExecutingContext context)
         {
             //context.HttpContext.Response.WriteAsync("ActionFilter Executing!");
-            Console.WriteLine("ActionFilter Executing!");
+            Console.WriteLine("CustomGlobalActionFilter Executing!");
             //this._logger.LogDebug("ActionFilter Executing!");
         }
     }

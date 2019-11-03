@@ -26,6 +26,7 @@ namespace TaiChi.Core.Mvc.Utility
             builder.Register(a=>new CustomAutofacAOP());
             //允许当前注册的服务实例使用AOP
             builder.RegisterType<A>().As<IA>().EnableInterfaceInterceptors();
+            
 
             base.Load(builder);
         }

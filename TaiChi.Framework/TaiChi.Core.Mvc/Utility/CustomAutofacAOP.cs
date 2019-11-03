@@ -27,7 +27,7 @@ namespace TaiChi.Core.Mvc.Utility
     {
         public void Show()
         {
-            Console.WriteLine(" this is davy ");
+            Console.WriteLine("this is davy");
         }
     }
 }

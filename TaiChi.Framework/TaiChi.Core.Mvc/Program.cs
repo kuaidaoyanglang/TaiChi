@@ -61,7 +61,7 @@ namespace TaiChi.Core.Mvc
         ///         
         ///分别对全局、控制器、action 注册了 ActionFiler 执行顺序：  全局OOnActionExecuting 控制器的OnActionExecuting  Action OnActionExecutingd  Action  Action OnActionExecuted 控制器的 OnActionExecuted  全局的OnActionExecuted  类似于一个俄罗斯套娃
         ///
-        /// Order 是用坐排序，执行顺序按照从小到大的顺序执行；
+        /// Order 是用做排序，执行顺序按照从小到大的顺序执行；
         /// 
         /// </summary>
         /// <param name="args"></param>

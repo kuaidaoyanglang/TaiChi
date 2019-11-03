@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using TaiChi.Core.Interface;
 using TaiChi.Core.Mvc.Utility;
 using TaiChi.Core.Service;
+using TaiChi.Core.Utility.Filters;
 
 namespace TaiChi.Core.Mvc
 {
@@ -49,8 +50,15 @@ namespace TaiChi.Core.Mvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddControllersAsServices();
+            services.AddControllersWithViews(options=> 
+            { 
+                //注册全局异常处理对象
+                options.Filters.Add(typeof(CustomExceptionFilterAttribute));
+                options.Filters.Add(typeof(CustomGlobalActionFilterAttribute));
+            }).AddControllersAsServices();
             services.AddSession();
+
+            //services.AddScoped<CustomActionFilterAttribute>();
             //申明一个容器
             //ContainerBuilder containerBuilder = new ContainerBuilder();
 

@@ -11,6 +11,10 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="4.5.0" />
     <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -25,6 +29,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TaiChi.Core.Interface\TaiChi.Core.Interface.csproj" />
     <ProjectReference Include="..\TaiChi.Core.Service\TaiChi.Core.Service.csproj" />
+    <ProjectReference Include="..\TaiChi.Core.Utility\TaiChi.Core.Utility.csproj" />
   </ItemGroup>
 
 </Project>
