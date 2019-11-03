@@ -38,9 +38,30 @@ namespace TaiChi.Core.Mvc
         ///     创建Ilogger对象
         ///     写日志
         ///     
-        /// IServiceCollection:其实是一个容器
-        ///     
+        ///  IServiceCollection : 其实是一个容器 
+        ///  容器的使用：
+        ///            实例化一个容器；
+        ///            注册
+        ///            获取服务
+        ///  整合Autofac
+        /// 1、引入autofac Autofac.Extensions.DependencyInjection
+        /// 2、ConfigureServices需要返返回值 IServiceProvider
+        /// 3、实例化容器
+        /// 4、注册服务
+        /// 5、返回AutofacServiceProvider 的实例
         /// 
+        /// Autofac支持Aop
+        /// 
+        /// 在Framework环境下：权限特性  Action/Result Exception
+        /// 
+        ///         因为特性是随编译之后存在
+        /// 
+        /// Core： 加了ResourceFilter Action/Result Exception
+        ///         Action/Result Exception三个特性没有什么变化。
+        ///         
+        ///分别对全局、控制器、action 注册了 ActionFiler 执行顺序：  全局OOnActionExecuting 控制器的OnActionExecuting  Action OnActionExecutingd  Action  Action OnActionExecuted 控制器的 OnActionExecuted  全局的OnActionExecuted  类似于一个俄罗斯套娃
+        ///
+        /// Order 是用坐排序，执行顺序按照从小到大的顺序执行；
         /// 
         /// </summary>
         /// <param name="args"></param>

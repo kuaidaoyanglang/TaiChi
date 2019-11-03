@@ -7,6 +7,7 @@ using TaiChi.Core.Mvc.Models;
 using TaiChi.Core.Mvc.Extensions;
 using Microsoft.Extensions.Logging;
 using TaiChi.Core.Interface;
+using TaiChi.Core.Mvc.Utility;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,12 +31,15 @@ namespace TaiChi.Core.Mvc.Controllers
         private ITestServiceC _testServiceC = null;
 
         private ITestServiceD _testServiceD = null;
+
+        private IA _a = null;
         public SecondController(ILoggerFactory loggerFactory,
             ILogger<SecondController> logger,
             ITestServiceA testServiceA,
             ITestServiceB testServiceB,
             ITestServiceC testServiceC,
-            ITestServiceD testServiceD)
+            ITestServiceD testServiceD,
+            IA a)
         {
             _loggerFactory = loggerFactory;
             _logger = logger;
@@ -43,6 +47,7 @@ namespace TaiChi.Core.Mvc.Controllers
             _testServiceB = testServiceB;
             _testServiceC = testServiceC;
             _testServiceD = testServiceD;
+            _a = a;
         }
 
         // GET: /<controller>/
@@ -52,6 +57,7 @@ namespace TaiChi.Core.Mvc.Controllers
             _testServiceB.Show();
             _testServiceC.Show();
             _testServiceD.Show();
+            _a.Show();
             var loggerFactory = _loggerFactory.CreateLogger<SecondController>();
             loggerFactory.LogError("this is SecondController LoggerFactory");
             _logger.LogError("this is SecondController Logger");

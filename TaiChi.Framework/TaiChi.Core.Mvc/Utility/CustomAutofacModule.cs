@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Extras.DynamicProxy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,11 @@ namespace TaiChi.Core.Mvc.Utility
             builder.RegisterType<TestServiceB>().As<ITestServiceB>();
             builder.RegisterType<TestServiceC>().As<ITestServiceC>();
             builder.RegisterType<TestServiceD>().As<ITestServiceD>();
+
+            //Auto允许使用AOP
+            builder.Register(a=>new CustomAutofacAOP());
+            //允许当前注册的服务实例使用AOP
+            builder.RegisterType<A>().As<IA>().EnableInterfaceInterceptors();
 
             base.Load(builder);
         }
