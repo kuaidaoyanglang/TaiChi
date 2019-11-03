@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -36,6 +37,11 @@ namespace TaiChi.Core.Mvc
         ///     注入ILoggerFactory
         ///     创建Ilogger对象
         ///     写日志
+        ///     
+        /// IServiceCollection:其实是一个容器
+        ///     
+        /// 
+        /// 
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
@@ -55,6 +61,6 @@ namespace TaiChi.Core.Mvc
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                }).UseServiceProviderFactory(new AutofacServiceProviderFactory());
     }
 }

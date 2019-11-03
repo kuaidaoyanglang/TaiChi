@@ -2,13 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TaiChi.Core.Interface;
+using TaiChi.Core.Mvc.Utility;
+using TaiChi.Core.Service;
 
 namespace TaiChi.Core.Mvc
 {
@@ -30,6 +37,46 @@ namespace TaiChi.Core.Mvc
 
         /// <summary>
         /// 注册服务：零个引用，被运行时构造函数调用，使用当前方法将服务添加到容器里面。静态函数也是被构造函数调用。
+        /// 
+        /// 1、引入Autofac、Autofac.Extensions.DependencyInjection；
+        /// 2、ConfigureServices需要返回值,IServiceProvider；
+        /// 3、实例化容器；
+        /// 4、注册服务；
+        /// 5、返回AutofacServiceProvider；
+        /// 
+        /// </summary>
+        /// <param name="services"></param>
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews().AddControllersAsServices();
+            services.AddSession();
+            //申明一个容器
+            //ContainerBuilder containerBuilder = new ContainerBuilder();
+
+            //service默认的情况下会注册服务，还要实例化控制器相关的代码
+            //containerBuilder.Populate(services);
+            //注册服务实例
+            //containerBuilder.RegisterModule<CustomAutofacModule>();
+
+            //builder一个容器
+            //IContainer container = containerBuilder.Build();
+            //return new AutofacServiceProvider(container);
+
+            //services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
+
+            // 或者将Controller加入到Services中，这样写上面的代码就可以省略了
+            //services.AddControllersWithViews().AddControllersAsServices();
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule<CustomAutofacModule>();
+        }
+
+        /*
+        /// <summary>
+        /// 注册服务：零个引用，被运行时构造函数调用，使用当前方法将服务添加到容器里面。静态函数也是被构造函数调用。
         /// </summary>
         /// <param name="services"></param>
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -38,7 +85,7 @@ namespace TaiChi.Core.Mvc
             services.AddControllersWithViews();
 
             services.AddSession();
-        }
+        }*/
 
         /// <summary>
         /// 使用注册进来的服务。也是被运行环境所调用。
@@ -46,7 +93,7 @@ namespace TaiChi.Core.Mvc
         /// <param name="app"></param>
         /// <param name="env"></param>
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
 
             //framework 全部封装好的25个事件，可以通过注册事件，添加业务逻辑
@@ -99,6 +146,7 @@ namespace TaiChi.Core.Mvc
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapRazorPages();
             });
         }
     }
