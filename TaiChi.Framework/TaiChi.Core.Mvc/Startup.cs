@@ -58,6 +58,8 @@ namespace TaiChi.Core.Mvc
             }).AddControllersAsServices();
             services.AddSession();
 
+            
+
             //services.AddScoped<CustomActionFilterAttribute>();
             //申明一个容器
             //ContainerBuilder containerBuilder = new ContainerBuilder();
@@ -80,6 +82,17 @@ namespace TaiChi.Core.Mvc
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule<CustomAutofacModule>();
+
+            #region 注册服务  非配置文件注册服务
+            //// 注册服务
+            //containerbuilder.RegisterType<TestServiceA>().As<ITestServiceA>().SingleInstance();
+            //containerbuilder.RegisterType<TestServiceB>().As<ITestServiceB>().SingleInstance();
+            //containerbuilder.RegisterType<TestServiceC>().As<ITestServiceC>().SingleInstance(); 
+            /////添加两个接口的实现  这里全部注册到容器中来
+            //containerbuilder.RegisterType<TestServiceD>().As<ITestServiceD>().SingleInstance();
+            //containerbuilder.RegisterType<TestServiceD_Test>().As<ITestServiceD>().SingleInstance();
+            //containerbuilder.RegisterModule<CustomAutofacModule>();   
+            #endregion
         }
 
         /*
