@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Autofac.Configuration;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -82,6 +83,19 @@ namespace TaiChi.Core.Mvc
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule<CustomAutofacModule>();
+
+            #region 依赖于配置文件配置服务 
+            // 实例化
+            IConfigurationBuilder config = new ConfigurationBuilder();
+            //指定配置文件  这里的默认配置文件的路径在根目录下，课根据实际情况调整
+            config.AddJsonFile("autofac.json");
+            // Register the ConfigurationModule with Autofac. 
+            IConfigurationRoot configBuild = config.Build();
+            //读取配置文件里配置需要注册的服务
+            var module = new ConfigurationModule(configBuild);
+            containerbuilder.RegisterModule(module);
+            // 测试内容放在Home/Index 下
+            #endregion
 
             #region 注册服务  非配置文件注册服务
             //// 注册服务
