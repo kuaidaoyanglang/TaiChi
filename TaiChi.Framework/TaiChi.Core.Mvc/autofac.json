@@ -2,7 +2,7 @@
   "defaultAssembly": "TaiChi.Core.Interface",   // 抽象所在的程序集名称
   "components": [
     {
-      "type": "TaiChi.Core.Service.TestServiceA,Ruanmou.Core.Service", // 接口的实现类 全名称
+      "type": "TaiChi.Core.Service.TestServiceA,TaiChi.Core.Service", // 接口的实现类 全名称
       "services": [
         {
           "type": "TaiChi.Core.Interface.ITestServiceA" // 接口的全名称
