@@ -164,6 +164,86 @@ namespace TaiChi.Core.Mvc
             Console.WriteLine($"age {this.Configuration["wizards:1:Age"]}");
             #endregion
 
+            // 都是基于 IApplicationBuilder
+
+            //AuthenticationHttpContextExtensions
+
+            /*   app.Run(c => c.Response.WriteAsync("Hello World!")); // 终结*/
+
+
+            //1 Run 终结式  只是执行，没有去调用Next  
+            //一般作为终结点
+            //app.Run(async (HttpContext context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World Run");  // 没有next  没有去执行下一个中间件
+            //});
+
+            //app.Run(async (HttpContext context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World Run Again");
+            //}); 
+            //app.Use(next =>   // next 是一个返回值  作为下一个中间件的一个参数
+            //{
+            //    Console.WriteLine("this is Middleware1");
+            //    return new RequestDelegate(async context =>
+            //    {
+            //        await context.Response.WriteAsync("<h3>This is Middleware1 start</h3>");
+            //        await next.Invoke(context);
+            //        await context.Response.WriteAsync("<h3>This is Middleware1 end</h3>");
+            //    });
+            //});
+
+            //app.Use(next =>
+            //{
+            //    Console.WriteLine("this is Middleware2");
+            //    return new RequestDelegate(async context =>
+            //    {
+            //        await context.Response.WriteAsync("<h3>This is Middleware2 start</h3>");
+            //        await next.Invoke(context);
+            //        await context.Response.WriteAsync("<h3>This is Middleware2 end</h3>");
+            //    });
+            //});
+
+            //app.Use(next =>
+            //{
+            //    Console.WriteLine("this is Middleware2");
+            //    return new RequestDelegate(async context =>
+            //    {
+            //        await context.Response.WriteAsync("<h3>This is Middleware3 start</h3>");
+            //        //await next.Invoke(context);
+            //        await context.Response.WriteAsync("<h3>This is Middleware3 end</h3>");
+            //    });
+            //}); 
+
+            //2 Use表示注册动作 不是终结点
+            //执行next，就可以执行下一个中间件 如果不执行，就等于Run
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World Use1 <br/>");
+            //    await next();
+            //    await context.Response.WriteAsync("Hello World Use1 End <br/>");
+            //});
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World Use2 Again <br/>");
+            //    await next();
+            //});
+
+            //UseWhen可以对HttpContext检测后，增加处理环节;原来的流程还是正常执行的
+            //app.UseWhen(context =>
+            //{
+            //    return context.Request.Query.ContainsKey("Name");
+            //},
+            //appBuilder =>
+            //{
+            //    appBuilder.Use(async (context, next) =>
+            //    {
+            //        await context.Response.WriteAsync("Hello World Use3 Again Again Again <br/>");
+            //        await next();
+            //    });
+            //});
+
+
             //IEnumerable<ITestServiceD> testServiceDs = IEnumerable <ITestServiceD> testServiceDs =
 
             if (env.IsDevelopment())

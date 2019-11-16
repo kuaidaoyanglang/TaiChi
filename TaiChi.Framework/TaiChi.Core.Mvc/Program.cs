@@ -63,6 +63,12 @@ namespace TaiChi.Core.Mvc
         ///
         /// Order 是用做排序，执行顺序按照从小到大的顺序执行；
         /// 
+        /// ResourceFilter:在控制器实例化之前执行，分别有OnResourceExecuted和OnResourceExecuting方法 适合做缓存
+        /// 
+        /// 管道处理模型，.netframework下，19个管道事件。是一个全家同，把所有需要的东西全部封装到内了
+        /// 如果需要扩展，注册不同的事件扩展,当是执行顺序是固定不变的。
+        /// 
+        /// core：把每一个快自由组装起来，自动调整顺序，最终形成一个链子一样；
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
