@@ -93,7 +93,7 @@ namespace TaiChi.Core.Mvc
             IConfigurationRoot configBuild = config.Build();
             //读取配置文件里配置需要注册的服务
             var module = new ConfigurationModule(configBuild);
-            containerbuilder.RegisterModule(module);
+            builder.RegisterModule(module);
             // 测试内容放在Home/Index 下
             #endregion
 
@@ -103,8 +103,16 @@ namespace TaiChi.Core.Mvc
             //containerbuilder.RegisterType<TestServiceB>().As<ITestServiceB>().SingleInstance();
             //containerbuilder.RegisterType<TestServiceC>().As<ITestServiceC>().SingleInstance(); 
             /////添加两个接口的实现  这里全部注册到容器中来
-            //containerbuilder.RegisterType<TestServiceD>().As<ITestServiceD>().SingleInstance();
-            //containerbuilder.RegisterType<TestServiceD_Test>().As<ITestServiceD>().SingleInstance();
+            //builder.RegisterType<TestServiceD>().As<ITestServiceD>().SingleInstance();
+            //builder.RegisterType<TestServiceD_Test>().As<ITestServiceD>().SingleInstance();
+            //IContainer container = builder.Build();
+
+            //IEnumerable<ITestServiceD> testServiceDs = container.Resolve<IEnumerable<ITestServiceD>>();
+
+            //foreach (var item in testServiceDs)
+            //{
+            //    item.Show();
+            //}
             //containerbuilder.RegisterModule<CustomAutofacModule>();   
             #endregion
         }
@@ -155,6 +163,8 @@ namespace TaiChi.Core.Mvc
             Console.Write($"{this.Configuration["wizards:1:Name"]}, ");
             Console.WriteLine($"age {this.Configuration["wizards:1:Age"]}");
             #endregion
+
+            //IEnumerable<ITestServiceD> testServiceDs = IEnumerable <ITestServiceD> testServiceDs =
 
             if (env.IsDevelopment())
             {
