@@ -7,6 +7,7 @@ using Autofac.Configuration;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
@@ -181,7 +182,7 @@ namespace TaiChi.Core.Mvc
             //app.Run(async (HttpContext context) =>
             //{
             //    await context.Response.WriteAsync("Hello World Run Again");
-            //}); 
+            //});
             //app.Use(next =>   // next 是一个返回值  作为下一个中间件的一个参数
             //{
             //    Console.WriteLine("this is Middleware1");
@@ -210,13 +211,13 @@ namespace TaiChi.Core.Mvc
             //    return new RequestDelegate(async context =>
             //    {
             //        await context.Response.WriteAsync("<h3>This is Middleware3 start</h3>");
-            //        //await next.Invoke(context);
+            //        await next.Invoke(context);
             //        await context.Response.WriteAsync("<h3>This is Middleware3 end</h3>");
             //    });
-            //}); 
+            //});
 
-            //2 Use表示注册动作 不是终结点
-            //执行next，就可以执行下一个中间件 如果不执行，就等于Run
+            ////2 Use表示注册动作 不是终结点
+            ////执行next，就可以执行下一个中间件 如果不执行，就等于Run
             //app.Use(async (context, next) =>
             //{
             //    await context.Response.WriteAsync("Hello World Use1 <br/>");
