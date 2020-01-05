@@ -76,6 +76,8 @@ namespace TaiChi.Core.Mvc
         /// c ConfigureContainer(ContainerBuilder containerBuiler)
         ///
         /// EntityFrameworkCore3.0
+        /// 没有edmx，一般是code first 也没有自动创建
+        /// 
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
