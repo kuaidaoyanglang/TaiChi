@@ -69,6 +69,13 @@ namespace TaiChi.Core.Mvc
         /// 如果需要扩展，注册不同的事件扩展,当是执行顺序是固定不变的。
         /// 
         /// core：把每一个快自由组装起来，自动调整顺序，最终形成一个链子一样；
+        ///
+        /// 替换容器时，升级了更加优雅的写法
+        /// a nuget--可以参考依赖项里面的autofac相关
+        /// b UseServiceProviderFactory
+        /// c ConfigureContainer(ContainerBuilder containerBuiler)
+        ///
+        /// EntityFrameworkCore3.0
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)

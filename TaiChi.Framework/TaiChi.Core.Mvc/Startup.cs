@@ -148,21 +148,21 @@ namespace TaiChi.Core.Mvc
             //byte[] vs = System.Text.Encoding.Default.GetBytes(helloWorld);
             //app.Run(a => a.Response.Body.WriteAsync(vs,0,vs.Length));//中断
 
-            var _logger = loggerFactory.CreateLogger<Startup>();
+            //var _logger = loggerFactory.CreateLogger<Startup>();
 
-            _logger.LogError("this is a Startup class Error");
+            //_logger.LogError("this is a Startup class Error");
 
             #region Asp.Net Core读取配置文件（JSON文件） 
-            //xml path
-            Console.WriteLine($"option1 = {this.Configuration["Option1"]}");
-            Console.WriteLine($"option2 = {this.Configuration["option2"]}");
-            Console.WriteLine(
-                $"suboption1 = {this.Configuration["subsection:suboption1"]}");
-            Console.WriteLine("Wizards:");
-            Console.Write($"{this.Configuration["wizards:0:Name"]}, ");
-            Console.WriteLine($"age {this.Configuration["wizards:0:Age"]}");
-            Console.Write($"{this.Configuration["wizards:1:Name"]}, ");
-            Console.WriteLine($"age {this.Configuration["wizards:1:Age"]}");
+            ////xml path
+            //Console.WriteLine($"option1 = {this.Configuration["Option1"]}");
+            //Console.WriteLine($"option2 = {this.Configuration["option2"]}");
+            //Console.WriteLine(
+            //    $"suboption1 = {this.Configuration["subsection:suboption1"]}");
+            //Console.WriteLine("Wizards:");
+            //Console.Write($"{this.Configuration["wizards:0:Name"]}, ");
+            //Console.WriteLine($"age {this.Configuration["wizards:0:Age"]}");
+            //Console.Write($"{this.Configuration["wizards:1:Name"]}, ");
+            //Console.WriteLine($"age {this.Configuration["wizards:1:Age"]}");
             #endregion
 
             // 都是基于 IApplicationBuilder

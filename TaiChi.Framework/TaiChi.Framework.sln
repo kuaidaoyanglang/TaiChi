@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaiChi.Framework.CoreConsol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaiChi.Core.Mvc", "TaiChi.Core.Mvc\TaiChi.Core.Mvc.csproj", "{3AA2055D-3149-4312-9402-C0CA3F10A362}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiChi.Core.Interface", "TaiChi.Core.Interface\TaiChi.Core.Interface.csproj", "{73DE3E9A-6743-4E8B-B52B-CE3E665DDF8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaiChi.Core.Interface", "TaiChi.Core.Interface\TaiChi.Core.Interface.csproj", "{73DE3E9A-6743-4E8B-B52B-CE3E665DDF8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiChi.Core.Service", "TaiChi.Core.Service\TaiChi.Core.Service.csproj", "{D167292B-885E-4CAC-AD09-43517C0EACD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaiChi.Core.Service", "TaiChi.Core.Service\TaiChi.Core.Service.csproj", "{D167292B-885E-4CAC-AD09-43517C0EACD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiChi.Core.Utility", "TaiChi.Core.Utility\TaiChi.Core.Utility.csproj", "{AB4AD9B2-A8A9-41A8-8E03-45F11DA1A404}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaiChi.Core.Utility", "TaiChi.Core.Utility\TaiChi.Core.Utility.csproj", "{AB4AD9B2-A8A9-41A8-8E03-45F11DA1A404}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiChi.EFCore3_0.Model", "TaiChi.EFCore3_0.Model\TaiChi.EFCore3_0.Model.csproj", "{730C51E6-0CD4-46B5-8488-1A8E77691FE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{AB4AD9B2-A8A9-41A8-8E03-45F11DA1A404}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB4AD9B2-A8A9-41A8-8E03-45F11DA1A404}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB4AD9B2-A8A9-41A8-8E03-45F11DA1A404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{730C51E6-0CD4-46B5-8488-1A8E77691FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730C51E6-0CD4-46B5-8488-1A8E77691FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730C51E6-0CD4-46B5-8488-1A8E77691FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730C51E6-0CD4-46B5-8488-1A8E77691FE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
