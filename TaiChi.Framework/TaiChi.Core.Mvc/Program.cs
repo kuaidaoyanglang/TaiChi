@@ -77,7 +77,10 @@ namespace TaiChi.Core.Mvc
         ///
         /// EntityFrameworkCore3.0
         /// 没有edmx，一般是code first 也没有自动创建
-        /// 
+        /// a 从Framework生成实体context，然后复制粘贴
+        /// b JDDbContext 构造函数不指定链接
+        /// c protected override void OnConfiguring 添加链接
+        /// d protected override void OnModelCreating 改了整个参数类型
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
